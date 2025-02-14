@@ -24,7 +24,7 @@ A sophisticated poker analysis engine combining Monte Carlo simulation with AI-d
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Maverick.git
+git clone https://github.com/professor-icebear/Maverick.git
 cd Maverick
 ```
 
