@@ -12,6 +12,23 @@ A sophisticated poker analysis engine combining Monte Carlo simulation with AI-d
 - ✅ Position-based decision making
 - ✅ Performance optimization with vectorization and caching
 
+### Advanced Analytics
+- ✅ Enhanced bluff detection system with:
+  - Board texture analysis
+  - Hand strength evaluation
+  - Multi-street betting pattern analysis
+  - Draw-based bluff classification
+- ✅ Comprehensive player profiling:
+  - Position-based statistics
+  - Street-by-street aggression factors
+  - Continuation betting analysis
+  - Bluffing tendencies and patterns
+- ✅ Detailed statistical analysis:
+  - VPIP/PFR by position
+  - Aggression factors by street
+  - Bluff type distribution
+  - Board texture frequencies
+
 ### Command Line Interface
 - ✅ User-friendly CLI for hand analysis
 - ✅ Support for all poker streets (preflop to river)
@@ -19,6 +36,27 @@ A sophisticated poker analysis engine combining Monte Carlo simulation with AI-d
 - ✅ Drawing hand analysis with outs counting
 - ✅ Pot odds and EV calculations
 - ✅ Action recommendations with bet sizing
+
+## Dataset
+
+This project uses the Poker Hand History (PHH) dataset from the University of Toronto Computer Poker Research Group. The dataset includes:
+
+- 21.6M+ uncorrupted no-limit hold'em hands
+- Stakes ranging from 25NL to 1000NL
+- Data from major poker sites (PokerStars, Full Tilt, etc.)
+- Period: July 1st to July 23rd, 2009
+
+### Dataset Setup
+
+1. The dataset (18.5GB) needs to be downloaded separately:
+```bash
+# From the project root
+mkdir -p maverick/data/dataset
+cd maverick/data/dataset
+git clone https://github.com/uoftcprg/phh-dataset.git .
+```
+
+2. The dataset will be automatically loaded and parsed by the system when needed.
 
 ## Installation
 
@@ -54,6 +92,11 @@ pip install -r requirements.txt
 python -m maverick.cli "As Kh" -c "Jh Td Qc"
 ```
 
+### Player Analysis
+```bash
+python examples/analyze_players.py --limit 100
+```
+
 ### Full Options
 ```bash
 python -m maverick.cli "As Kh" \
@@ -86,17 +129,23 @@ maverick/
 │   ├── decision.py      # Decision making logic
 │   ├── outs.py         # Drawing hand analysis
 │   └── poker_utils.py   # High-level interface
+├── data/
+│   ├── parser.py        # Hand history parser
+│   ├── loader.py        # Dataset loader
+│   └── dataset/         # PHH dataset (downloaded separately)
+├── features.py          # Advanced poker features and analysis
 ├── cli.py              # Command-line interface
 └── tests/              # Comprehensive test suite
 ```
 
 ## Roadmap
 
-### Phase 1: Opponent Modeling (In Progress)
-- [ ] Implement player profiling system
-- [ ] Develop range modeling based on position and action history
-- [ ] Add hand history analysis for opponent tendencies
-- [ ] Integrate historical data analysis
+### Phase 1: Opponent Modeling (✅ In Progress)
+- ✅ Implement player profiling system
+- ✅ Develop range modeling based on position and action history
+- ✅ Add hand history analysis for opponent tendencies
+- ✅ Integrate historical data analysis
+- [ ] Enhance bluff detection with machine learning
 
 ### Phase 2: Real-Time Integration
 - [ ] Design RESTful API for live analysis
@@ -137,6 +186,7 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
+- [PHH Dataset](https://github.com/uoftcprg/phh-dataset) from UofT CPRG
 - Treys library for card evaluation
 - NumPy for vectorized calculations
 - The poker community for equity calculations and strategy insights 

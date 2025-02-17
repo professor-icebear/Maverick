@@ -51,4 +51,49 @@ logs/
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Large dataset files
+# Note: The poker hand history dataset (18.5GB) should be downloaded from:
+# https://github.com/uoftcprg/phh-dataset.git
+# Clone it into maverick/data/dataset/
+maverick/data/dataset/
+maverick/data/dataset/**/*
+
+# Generated files and directories
+*.pyc
+__pycache__/
+.pytest_cache/
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Model files and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+models/
+checkpoints/
+
+# Analysis and profiling
+*.prof
+profiling/
+analysis_results/
+*.stats
+*.profile
+
+# Generated data
+*.csv
+*.json
+*.pkl
+*.npy
+*.npz
+generated_data/
+
+# Documentation
+docs/_build/
+_build/
+build/
+dist/ 
